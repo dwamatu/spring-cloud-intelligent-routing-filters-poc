@@ -1,6 +1,6 @@
 package com.ideabrains.gatewayservice;
 
-import com.ideabrains.filters.Base64DecodeFilter;
+import com.ideabrains.filters.EncryptionFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,7 +17,8 @@ public class GatewayServiceApplication {
     }
 
     @Bean
-    public Base64DecodeFilter base64DecodeFilter() {
-        return new Base64DecodeFilter();
+    public EncryptionFilter encryptionFilter
+            () {
+        return new EncryptionFilter();
     }
 }
