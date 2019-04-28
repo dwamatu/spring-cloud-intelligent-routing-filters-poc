@@ -1,5 +1,6 @@
 package com.ideabrains.gatewayservice;
 
+import com.ideabrains.filters.DecryptionFilter;
 import com.ideabrains.filters.EncryptionFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,8 +18,12 @@ public class GatewayServiceApplication {
     }
 
     @Bean
-    public EncryptionFilter encryptionFilter
-            () {
+    public DecryptionFilter decryptionFilter() {
+        return new DecryptionFilter();
+    }
+
+    @Bean
+    public EncryptionFilter encryptionFilter() {
         return new EncryptionFilter();
     }
 }
